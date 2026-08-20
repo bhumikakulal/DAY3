@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light the Bulb 💡</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1b1b2f;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        /* Bulb */
+        .bulb-container {
+            position: relative;
+            width: 180px;
+            height: 260px;
+            margin: auto;
+        }
+
+        .bulb {
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            width: 120px;
+            height: 150px;
+            background: #555;
+            border-radius: 50% 50% 45% 45%;
+            transition: 0.4s ease;
+        }
+
+        /* Little highlight on bulb */
+        .bulb::before {
+            content: "";
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: 25px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            transform: rotate(25deg);
+        }
+
+        /* Bulb neck */
+        .bulb-neck {
+            position: absolute;
+            top: 145px;
+            left: 65px;
+            width: 50px;
+            height: 30px;
+            background: #777;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Screw part */
+        .base {
+            position: absolute;
+            top: 170px;
+            left: 60px;
+            width: 60px;
+            height: 55px;
+            background: #888;
+            border-radius: 5px 5px 15px 15px;
+        }
+
+        .base::before,
+        .base::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 60px;
+            height: 7px;
+            background: #555;
+            border-radius: 5px;
+        }
+
+        .base::before {
+            top: 12px;
+        }
+
+        .base::after {
+            top: 28px;
+        }
+
+        /* ON state - students will activate this using JS */
+        .bulb.on {
+            background: #ff6dc9;
+            box-shadow:
+                0 0 20px #ff6d6d,
+                0 0 50px #ffba3b,
+                0 0 90px #ff8000;
+        }
+
+        .bulb.on::before {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Button */
+        button {
+            margin-top: 30px;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 30px;
+            background: #ffffff;
+            color: #1b1b2f;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .instruction {
+            color: #aaa;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>💡 Light the Bulb!</h1>
+
+        <div class="bulb-container">
+
+            <div id="bulb" class="bulb"></div>
+
+            <div class="bulb-neck"></div>
+
+            <div class="base"></div>
+
+        </div>
+
+        <button id="switchBtn">
+            Turn ON 💡
+        </button>
+
+        <p class="instruction">
+            Click the button to control the bulb
+        </p>
+
+    </div>
+
+
+   
+
+    <script src="bulb.js">
+
+
+
+    </script>
+
+</body>
+</html>
